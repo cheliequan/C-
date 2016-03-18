@@ -1,0 +1,27 @@
+﻿Build started 2013/11/25 16:35:45.
+     1>Project "F:\vc2010\first\helloworld.exe\helloworld.exe\helloworld.exe.vcxproj" on node 2 (build target(s)).
+     1>PrepareForBuild:
+         Creating directory "F:\vc2010\first\helloworld.exe\Release\".
+       InitializeBuildStatus:
+         Creating "Release\helloworld.exe.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         D:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Yc"StdAfx.h" /Fp"Release\helloworld.exe.pch" /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp
+         stdafx.cpp
+         D:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Release\helloworld.exe.pch" /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt helloworld.exe.cpp
+         helloworld.exe.cpp
+       Link:
+         D:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"F:\vc2010\first\helloworld.exe\Release\helloworld.exe.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Release\helloworld.exe.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"F:\vc2010\first\helloworld.exe\Release\helloworld.exe.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"F:\vc2010\first\helloworld.exe\Release\helloworld.exe.lib" /MACHINE:X86 Release\helloworld.exe.obj
+         Release\stdafx.obj
+         Generating code
+         Finished generating code
+         helloworld.exe.vcxproj -> F:\vc2010\first\helloworld.exe\Release\helloworld.exe.exe
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"F:\vc2010\first\helloworld.exe\Release\helloworld.exe.exe;#1" /manifest Release\helloworld.exe.exe.intermediate.manifest
+       FinalizeBuildStatus:
+         Deleting file "Release\helloworld.exe.unsuccessfulbuild".
+         Touching "Release\helloworld.exe.lastbuildstate".
+     1>Done Building Project "F:\vc2010\first\helloworld.exe\helloworld.exe\helloworld.exe.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.80

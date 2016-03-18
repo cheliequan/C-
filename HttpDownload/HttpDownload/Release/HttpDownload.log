@@ -1,0 +1,27 @@
+﻿Build started 2013/12/26 11:01:01.
+     1>Project "F:\vc2010\first\HttpDownload\HttpDownload\HttpDownload.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Release\HttpDownload.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+         D:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _UNICODE /D UNICODE /D _AFXDLL /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Release\HttpDownload.pch" /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt HttpDownload.cpp
+         HttpDownload.cpp
+       ResourceCompile:
+         All outputs are up-to-date.
+       Link:
+         D:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"F:\vc2010\first\HttpDownload\Release\HttpDownload.exe" /INCREMENTAL:NO /NOLOGO /MANIFEST /ManifestFile:"Release\HttpDownload.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"F:\vc2010\first\HttpDownload\Release\HttpDownload.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"F:\vc2010\first\HttpDownload\Release\HttpDownload.lib" /MACHINE:X86 Release\HttpDownload.res
+         Release\HttpDownload.obj
+         Release\stdafx.obj
+         Generating code
+         Finished generating code
+         HttpDownload.vcxproj -> F:\vc2010\first\HttpDownload\Release\HttpDownload.exe
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"F:\vc2010\first\HttpDownload\Release\HttpDownload.exe;#1" /manifest Release\HttpDownload.exe.intermediate.manifest "D:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\Include\Manifest\dpiaware.manifest"
+       FinalizeBuildStatus:
+         Deleting file "Release\HttpDownload.unsuccessfulbuild".
+         Touching "Release\HttpDownload.lastbuildstate".
+     1>Done Building Project "F:\vc2010\first\HttpDownload\HttpDownload\HttpDownload.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:04.55

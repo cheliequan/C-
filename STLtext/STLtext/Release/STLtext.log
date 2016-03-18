@@ -1,0 +1,27 @@
+﻿Build started 2013/12/26 16:12:39.
+     1>Project "F:\vc2010\first\STLtext\STLtext\STLtext.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Release\STLtext.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+         D:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _UNICODE /D UNICODE /D _AFXDLL /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Release\STLtext.pch" /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt STLtext.cpp
+         STLtext.cpp
+       ResourceCompile:
+         All outputs are up-to-date.
+       Link:
+         D:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"F:\vc2010\first\STLtext\Release\STLtext.exe" /INCREMENTAL:NO /NOLOGO /MANIFEST /ManifestFile:"Release\STLtext.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"F:\vc2010\first\STLtext\Release\STLtext.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"F:\vc2010\first\STLtext\Release\STLtext.lib" /MACHINE:X86 Release\STLtext.res
+         Release\stdafx.obj
+         Release\STLtext.obj
+         Generating code
+         Finished generating code
+         STLtext.vcxproj -> F:\vc2010\first\STLtext\Release\STLtext.exe
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"F:\vc2010\first\STLtext\Release\STLtext.exe;#1" /manifest Release\STLtext.exe.intermediate.manifest "D:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\Include\Manifest\dpiaware.manifest"
+       FinalizeBuildStatus:
+         Deleting file "Release\STLtext.unsuccessfulbuild".
+         Touching "Release\STLtext.lastbuildstate".
+     1>Done Building Project "F:\vc2010\first\STLtext\STLtext\STLtext.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:03.84

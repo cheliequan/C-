@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Leetcode", "Leetcode\Leetcode.vcxproj", "{CCFF9CF5-B969-4024-8539-4D49A9463347}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Test_919", "Test_919\Test_919.vcxproj", "{7B28C135-26B7-4EF8-9EA9-4D2C7F910CF7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CCFF9CF5-B969-4024-8539-4D49A9463347}.Debug|Win32.ActiveCfg = Debug|Win32
+		{CCFF9CF5-B969-4024-8539-4D49A9463347}.Debug|Win32.Build.0 = Debug|Win32
+		{CCFF9CF5-B969-4024-8539-4D49A9463347}.Release|Win32.ActiveCfg = Release|Win32
+		{CCFF9CF5-B969-4024-8539-4D49A9463347}.Release|Win32.Build.0 = Release|Win32
+		{7B28C135-26B7-4EF8-9EA9-4D2C7F910CF7}.Debug|Win32.ActiveCfg = Debug|Win32
+		{7B28C135-26B7-4EF8-9EA9-4D2C7F910CF7}.Debug|Win32.Build.0 = Debug|Win32
+		{7B28C135-26B7-4EF8-9EA9-4D2C7F910CF7}.Release|Win32.ActiveCfg = Release|Win32
+		{7B28C135-26B7-4EF8-9EA9-4D2C7F910CF7}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
