@@ -1,0 +1,118 @@
+/**************************************************************
+** 替换函数
+***************************************************************/
+
+//替换RegCreateKeyEx函数的函数
+LONG WINAPI MyRegCreateKeyExA(
+  HKEY hKey,                                  // handle to open key
+  LPCTSTR lpSubKey,                           // subkey name
+  DWORD Reserved,                             // reserved
+  LPTSTR lpClass,                             // class string
+  DWORD dwOptions,                            // special options
+  REGSAM samDesired,                          // desired security access
+  LPSECURITY_ATTRIBUTES lpSecurityAttributes, // inheritance
+  PHKEY phkResult,                            // key handle 
+  LPDWORD lpdwDisposition                     // disposition value buffer
+){
+	//Add you operator here
+	// 记录操作
+	
+	::BuildSqlSentence(hKey,lpSubKey,"RegCreateKey");
+	
+
+	//恢复原函数入口
+	PFNRegCreateKeyExA pfnCreateKeyExA = (PFNRegCreateKeyExA)GetProcAddress(LoadLibrary("advapi32.dll"), "RegCreateKeyExA");
+	LONG handlef = pfnCreateKeyExA (hKey, lpSubKey, Reserved, lpClass, dwOptions, samDesired, lpSecurityAttributes, phkResult, lpdwDisposition);
+	
+	return handlef;
+}
+
+
+void ReadApiName(/*API *Api*/)
+{
+	int i = 0;
+	FILE *fp = fopen("C:\\ApiNameText.txt","r");
+	HMODULE APIHmodule = ::LoadLibrary("advapi32.dll");
+	while(!feof(fp))
+	{
+		::fgets((ApiNode[i].ApiName),256,fp);
+		ApiNode[i].used = true;
+		i++;
+	}
+	//API 地址 初始化
+	ApiNode[0].ApiAddress = (PROC)::GetProcAddress(APIHmodule,"RegCreateKeyExA");
+	ApiNode[1].ApiAddress = (PROC)::GetProcAddress(APIHmodule,"RegCreateKeyExW");
+	ApiNode[2].ApiAddress = (PROC)::GetProcAddress(APIHmodule,"RegCreateKeyA");
+	ApiNode[3].ApiAddress = (PROC)::GetProcAddress(APIHmodule,"RegCreateKeyW");
+	ApiNode[4].ApiAddress = (PROC)::GetProcAddress(APIHmodule,"RegDeleteKeyA");
+	ApiNode[5].ApiAddress = (PROC)::GetProcAddress(APIHmodule,"RegDeleteKeyW");
+	ApiNode[6].ApiAddress = (PROC)::GetProcAddress(APIHmodule,"RegSetValueA");
+	ApiNode[7].ApiAddress = (PROC)::GetProcAddress(APIHmodule,"RegSetValueW");
+	ApiNode[8].ApiAddress = (PROC)::GetProcAddress(APIHmodule,"RegSetValueExA");
+	ApiNode[9].ApiAddress = (PROC)::GetProcAddress(APIHmodule,"RegSetValueExW");
+	ApiNode[10].ApiAddress = (PROC)::GetProcAddress(APIHmodule,"RegSetKeySecurity");
+	ApiNode[11].ApiAddress = (PROC)::GetProcAddress(APIHmodule,"RegLoadKeyA");
+	ApiNode[12].ApiAddress = (PROC)::GetProcAddress(APIHmodule,"RegLoadKeyW");
+	ApiNode[13].ApiAddress = (PROC)::GetProcAddress(APIHmodule,"RegSaveKeyA");
+	ApiNode[14].ApiAddress = (PROC)::GetProcAddress(APIHmodule,"RegSaveKeyW");
+	ApiNode[15].ApiAddress = (PROC)::GetProcAddress(APIHmodule,"RegSaveKeyExA");
+	ApiNode[16].ApiAddress = (PROC)::GetProcAddress(APIHmodule,"RegSaveKeyExW");
+	ApiNode[17].ApiAddress = (PROC)::GetProcAddress(APIHmodule,"RegNotifyChangeKeyValue");
+	ApiNode[18].ApiAddress = (PROC)::GetProcAddress(APIHmodule,"RegReplaceKeyA");
+	ApiNode[19].ApiAddress = (PROC)::GetProcAddress(APIHmodule,"RegReplaceKeyW");
+	ApiNode[20].ApiAddress = (PROC)::GetProcAddress(APIHmodule,"RegUnLoadKeyA");
+	ApiNode[21].ApiAddress = (PROC)::GetProcAddress(APIHmodule,"RegUnLoadKeyW");
+
+	//API 替换函数初始化
+	ApiNode[0].ReplaceApiAddress = (PROC)MyRegCreateKeyExA;
+	ApiNode[1].ReplaceApiAddress = (PROC)MyRegCreateKeyExW;
+	ApiNode[2].ReplaceApiAddress = (PROC)MyRegCreateKeyA;
+	ApiNode[3].ReplaceApiAddress = (PROC)MyRegCreateKeyW;
+	ApiNode[4].ReplaceApiAddress = (PROC)MyRegDeleteKeyA;
+	ApiNode[5].ReplaceApiAddress = (PROC)MyRegDeleteKeyW;
+	ApiNode[6].ReplaceApiAddress = (PROC)MyRegSetValueA;
+	ApiNode[7].ReplaceApiAddress = (PROC)MyRegSetValueW;
+	ApiNode[8].ReplaceApiAddress = (PROC)MyRegSetValueExA;
+	ApiNode[9].ReplaceApiAddress = (PROC)MyRegSetValueExW;
+	ApiNode[10].ReplaceApiAddress = (PROC)MyRegSetKeySecurity;
+	ApiNode[11].ReplaceApiAddress = (PROC)MyRegLoadKeyA;
+	ApiNode[12].ReplaceApiAddress = (PROC)MyRegLoadKeyW;
+	ApiNode[13].ReplaceApiAddress = (PROC)MyRegSaveKeyA;
+	ApiNode[14].ReplaceApiAddress = (PROC)MyRegSaveKeyW;
+	ApiNode[15].ReplaceApiAddress = (PROC)MyRegSaveKeyExA;
+	ApiNode[16].ReplaceApiAddress = (PROC)MyRegSaveKeyExW;
+	ApiNode[17].ReplaceApiAddress = (PROC)MyRegNotifyChangeKeyValue;
+	ApiNode[18].ReplaceApiAddress = (PROC)MyRegReplaceKeyA;
+	ApiNode[19].ReplaceApiAddress = (PROC)MyRegReplaceKeyW;
+	ApiNode[20].ReplaceApiAddress = (PROC)MyRegUnLoadKeyA;
+	ApiNode[21].ReplaceApiAddress = (PROC)MyRegUnLoadKeyW;
+ }
+
+void RecoverIAT()
+{
+	for(int i = 0;i <= 21;i++)
+	{
+		if(ApiNode[i].Replaced&&ApiNode[i].used)
+		{
+			//HMODULE APIHmodule = ::LoadLibrary("advapi32.dll");
+			::SetHook(::GetModuleHandle(NULL), "advapi32.dll",(PROC)ApiNode[i].ReplaceApiAddress,(PROC)ApiNode[i].ApiAddress);
+		}
+	}
+	::ReleaseMysqlHandle();
+	return ;
+}
+
+
+//恢复原来的PE文件的导入表
+void ReplaceAPIMain()
+{
+	::ReadApiName();
+	for(int i = 0;i <= 21;i++)
+	{
+		if(ApiNode[i].used == true)
+			ApiNode[i].Replaced = ::SetHook(::GetModuleHandle(NULL), "advapi32.dll",(PROC)ApiNode[i].ApiAddress,(PROC)ApiNode[i].ReplaceApiAddress);
+		else
+			ApiNode[i].Replaced = false;
+	}
+	return ;
+}
